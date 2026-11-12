@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#160e10">
+  <title>THE HOLLOW HOTEL — Est. 1897</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <div id="intro" class="intro">
+    <div class="intro-copy">
+      <p class="eyebrow">UNA NOCHE DE TORMENTA · 1897</p>
+      <h1>THE HOLLOW<br><span>HOTEL</span></h1>
+      <p class="intro-line">The Hotel That Never Sleeps.</p>
+      <button id="enterButton" class="gold-button">ACERCARSE AL HOTEL</button>
+    </div>
+    <div class="intro-credit">ESTABLISHED 1897 <span>✦</span> NO VACANCIES</div>
+  </div>
+
+  <main id="game" class="game hidden">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">H</span><div><strong>THE HOLLOW HOTEL</strong><small>EST. 1897</small></div></div>
+      <div class="top-actions">
+        <button id="mapButton" class="top-button">MAPA</button>
+        <button id="diaryButton" class="top-button">DIARIO <span id="diaryCount">00</span></button>
+        <button id="inventoryButton" class="top-button">OBJETOS <span id="inventoryCount">00</span></button>
+        <button id="soundButton" class="sound-button">SONIDO: OFF</button>
+      </div>
+    </header>
+
+    <section class="scene-wrap">
+      <div id="scene" class="scene lobby-scene" role="img" aria-label="Interior del hotel">
+        <div class="scene-shade"></div>
+        <div class="scene-heading"><span id="floorLabel">PLANTA BAJA</span><h2 id="roomTitle">El vestíbulo</h2></div>
+        <div id="hotspots" class="hotspots"></div>
+        <div id="sceneHint" class="scene-hint">Explorá el lugar. Algunas cosas no están donde deberían.</div>
+      </div>
+      <div class="scene-footer">
+        <div><span class="status-dot"></span><span id="roomDescription">La recepción sigue preparada para recibir huéspedes.</span></div>
+        <button id="backButton" class="text-button hidden">VOLVER AL VESTÍBULO</button>
+      </div>
+    </section>
+    <section class="bottom-note"><span>THE HOLLOW HOTEL</span><span>LA RECEPCIÓN CIERRA A MEDIANOCHE</span><span id="clock">23:47</span></section>
+  </main>
+
+  <div id="objectModal" class="modal hidden"><div class="modal-card">
+    <button class="close-button" data-close="objectModal">×</button>
+    <p class="eyebrow" id="objectType">OBJETO</p><h3 id="objectTitle">Objeto</h3><p id="objectText"></p>
+    <div id="objectExtra" class="object-extra"></div>
+    <button id="collectButton" class="gold-button hidden">GUARDAR EN EL INVENTARIO</button>
+    <button class="subtle-button" data-close="objectModal">CERRAR</button>
+  </div></div>
+  <div id="mapModal" class="modal hidden"><div class="modal-card wide-card">
+    <button class="close-button" data-close="mapModal">×</button><p class="eyebrow">PLANO ARQUITECTÓNICO</p><h3>El hotel</h3>
+    <p class="muted">Algunas zonas todavía no están disponibles.</p><div id="mapRooms" class="map-rooms"></div>
+  </div></div>
+  <div id="diaryModal" class="modal hidden"><div class="modal-card wide-card">
+    <button class="close-button" data-close="diaryModal">×</button><p class="eyebrow">REGISTRO PERSONAL</p><h3>Diario de descubrimientos</h3>
+    <div id="diaryEntries" class="entries"><p class="muted">Todavía no escribiste nada.</p></div>
+  </div></div>
+  <div id="inventoryModal" class="modal hidden"><div class="modal-card">
+    <button class="close-button" data-close="inventoryModal">×</button><p class="eyebrow">TUS PERTENENCIAS</p><h3>Objetos encontrados</h3>
+    <div id="inventoryItems" class="entries"><p class="muted">No encontraste ningún objeto todavía.</p></div>
+  </div></div>
+  <div id="messageToast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

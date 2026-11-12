@@ -1,0 +1,29 @@
+THE HOLLOW HOTEL — PRIMERA VERSIÓN
+
+1) Descomprimí la carpeta THE-HOLLOW-HOTEL.
+2) Abrí esa carpeta en Visual Studio Code.
+3) Dentro de img, colocá tus imágenes y respetá EXACTAMENTE estos nombres:
+
+portada-hotel.jpg  imagen de portada / fachada del hotel
+lobby.jpg          vestíbulo principal
+comedor.jpg        comedor
+salon.jpg          salón
+biblioteca.jpg     biblioteca
+pasillo.jpg        pasillo del hotel
+habitacion.jpg     habitación 104
+oficina.jpg        oficina del director (para una etapa futura)
+atico.jpg          ático (para una etapa futura)
+
+IMPORTANTE:
+- Las imágenes deben estar dentro de la carpeta img.
+- Si una imagen es PNG, cambiá la extensión en estilos.css o convertí la imagen a JPG.
+- Conviene usar imágenes horizontales panorámicas, por ejemplo 1920 x 1080.
+- Los círculos y etiquetas son puntos de interacción. Luego ajustaremos su posición
+  para que coincidan exactamente con los objetos de tus imágenes definitivas.
+- Esta versión usa imágenes como fondos; no dibuja los escenarios con CSS.
+
+Para probarlo, abrí index.html en un navegador. También podés usar Live Server
+ desde Visual Studio Code.
+
+La música todavía no reproduce un archivo: primero tendremos que agregar una pista
+ambiental y conectar el botón de sonido.

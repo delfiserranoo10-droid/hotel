@@ -1,0 +1,457 @@
+/* ==========================================================
+   THE HOLLOW HOTEL — estilos.css
+   Las imágenes se buscan en la carpeta img/ (al lado de index.html).
+   Cada fondo prueba .jpg, .png y .jpeg: se muestra la que exista.
+   ========================================================== */
+
+* { box-sizing: border-box; }
+
+:root {
+  --ink: #160e10;
+  --wine: #3a171e;
+  --gold: #c5a36a;
+  --cream: #e8dcc7;
+  --muted: #b5a895;
+  --line: rgba(197, 163, 106, .34);
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+body {
+  font-family: Manrope, sans-serif;
+  overflow-x: hidden;
+}
+
+button { font: inherit; cursor: pointer; }
+.hidden { display: none !important; }
+
+/* ---------- Grano de película ---------- */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: .12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+}
+
+/* ---------- Pantalla de inicio ---------- */
+.intro {
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  overflow: hidden;
+  background-color: #211417;
+  background-image:
+    linear-gradient(90deg, rgba(12, 8, 9, .88), rgba(12, 8, 9, .36)),
+    url("img/portada-hotel.jpg.jpeg"),
+    url("img/portada-hotel.jpg.jpeg"),
+    url("img/portada-hotel.jpg.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 7, 8, .75), transparent 45%, rgba(10, 7, 8, .2));
+  pointer-events: none;
+}
+
+.intro-copy {
+  position: relative;
+  z-index: 1;
+  padding: 32px 20px;
+  animation: fadeUp 1.4s ease both;
+}
+
+.eyebrow {
+  letter-spacing: .24em;
+  color: var(--gold);
+  font-size: .67rem;
+  font-weight: 600;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(4rem, 11vw, 8rem);
+  line-height: .77;
+  letter-spacing: .06em;
+  margin: 28px 0 18px;
+  text-shadow: 0 8px 40px #000;
+}
+
+h1 span { color: #d5b77e; }
+
+.intro-line {
+  color: #d6c7b2;
+  letter-spacing: .2em;
+  font-size: .8rem;
+  margin-bottom: 42px;
+}
+
+.intro-credit {
+  position: absolute;
+  z-index: 1;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  font-size: .62rem;
+  letter-spacing: .22em;
+  color: #c3b49d;
+}
+
+.intro-credit span { color: var(--gold); padding: 0 12px; }
+
+/* ---------- Botones ---------- */
+.gold-button {
+  border: 1px solid var(--gold);
+  color: #1b1112;
+  background: var(--gold);
+  padding: 14px 24px;
+  letter-spacing: .14em;
+  font-size: .68rem;
+  font-weight: 700;
+  transition: .25s;
+}
+
+.gold-button:hover { background: #e0c58f; transform: translateY(-2px); }
+
+.text-button, .subtle-button {
+  background: transparent;
+  color: var(--gold);
+  border: 0;
+  letter-spacing: .1em;
+  font-size: .62rem;
+  padding: 10px;
+}
+
+.subtle-button { margin-left: 10px; }
+
+/* ---------- Juego ---------- */
+.game {
+  min-height: 100vh;
+  min-height: 100svh;
+  max-width: 1600px;
+  margin: auto;
+  padding: 0 28px 18px;
+}
+
+.topbar {
+  min-height: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--gold);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font: 28px "Cormorant Garamond", serif;
+}
+
+.brand strong {
+  display: block;
+  font: 600 .78rem "Cormorant Garamond", serif;
+  letter-spacing: .18em;
+}
+
+.brand small {
+  display: block;
+  color: var(--gold);
+  font-size: .55rem;
+  letter-spacing: .22em;
+  margin-top: 4px;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.top-button, .sound-button {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #d9cbb8;
+  padding: 10px 12px;
+  font-size: .62rem;
+  letter-spacing: .1em;
+}
+
+.top-button:hover, .sound-button:hover { border-color: var(--line); color: var(--gold); }
+.top-button span { color: var(--gold); margin-left: 4px; }
+.sound-button { border-color: var(--line); color: var(--gold); }
+
+/* ---------- Escena (aquí se ve la imagen de cada sala) ---------- */
+.scene-wrap { margin: 24px auto 0; max-width: 1450px; }
+
+.scene {
+  height: min(69vw, 690px);
+  min-height: 430px;
+  position: relative;
+  overflow: hidden;
+  background-color: #211719;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(197, 163, 106, .4);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, .45);
+}
+
+.lobby-scene    { background-image: url("img/Vestibulo.jpg.png"),      url("img/Vestibulo.jpg.png"),      url("img/Vestibulo.jpg.png"); }
+.dining-scene   { background-image: url("img/comedor.jpg.jpeg"),    url("img/comedor.jpg.jpeg"),    url("img/comedor.jpg.jpeg"); }
+.lounge-scene   { background-image: url("img/salon.jpg.jpeg"),      url("img/salon.jpg.jpeg"),      url("img/salon.jpg.jpeg"); }
+.library-scene  { background-image: url("img/biblioteca.jpg"), url("img/biblioteca.png"), url("img/biblioteca.jpeg"); }
+.corridor-scene { background-image: url("img/pasillo.jpg"),    url("img/pasillo.png"),    url("img/pasillo.jpeg"); }
+.bedroom-scene  { background-image: url("img/habitacion.jpg"), url("img/habitacion.png"), url("img/habitacion.jpeg"); }
+.office-scene   { background-image: url("img/oficina.jpg"),    url("img/oficina.png"),    url("img/oficina.jpeg"); }
+.attic-scene    { background-image: url("img/atico.jpg"),      url("img/atico.png"),      url("img/atico.jpeg"); }
+
+.scene-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 6, 7, .68), transparent 28%, transparent 62%, rgba(10, 6, 7, .48));
+  pointer-events: none;
+}
+
+.scene-heading {
+  position: absolute;
+  top: 27px;
+  left: 32px;
+  z-index: 2;
+  text-shadow: 0 2px 15px #000;
+  pointer-events: none;
+}
+
+.scene-heading span { font-size: .58rem; letter-spacing: .24em; color: #d7b87b; }
+.scene-heading h2 { font-size: clamp(2rem, 4vw, 3.6rem); margin: 3px 0; }
+
+.scene-hint {
+  position: absolute;
+  right: 24px;
+  bottom: 22px;
+  color: #e0d4c2;
+  font-size: .65rem;
+  text-shadow: 0 2px 8px #000;
+  pointer-events: none;
+}
+
+/* ---------- Puntos de interacción ---------- */
+.hotspots { position: absolute; inset: 0; z-index: 3; }
+
+.hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(231, 204, 151, .9);
+  border-radius: 50%;
+  color: #f1d9a8;
+  background: rgba(25, 14, 14, .55);
+  box-shadow: 0 0 0 5px rgba(197, 163, 106, .12), 0 0 22px rgba(0, 0, 0, .6);
+  font-size: 17px;
+  display: grid;
+  place-items: center;
+  transition: .2s;
+}
+
+.hotspot:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: var(--gold);
+  color: #1b1112;
+}
+
+.hotspot.door {
+  width: auto;
+  border-radius: 0;
+  padding: 9px 12px;
+  font-size: .58rem;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+
+/* ---------- Pie de escena ---------- */
+.scene-footer {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: #b9aa97;
+  font-size: .68rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b79b69;
+  margin-right: 10px;
+  box-shadow: 0 0 10px #b79b69;
+}
+
+.bottom-note {
+  max-width: 1450px;
+  margin: 14px auto 0;
+  display: flex;
+  justify-content: space-between;
+  color: #806f60;
+  font-size: .55rem;
+  letter-spacing: .16em;
+}
+
+/* ---------- Ventanas (modales) ---------- */
+.modal {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(5, 3, 4, .82);
+  backdrop-filter: blur(5px);
+}
+
+.modal-card {
+  width: min(520px, 100%);
+  max-height: 85vh;
+  max-height: 85svh;
+  overflow: auto;
+  position: relative;
+  padding: 38px;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, #29191b, #140e10);
+  box-shadow: 0 20px 80px #000;
+  animation: fadeUp .25s ease both;
+}
+
+.wide-card { width: min(760px, 100%); }
+.modal-card h3 { font-size: 2.5rem; margin: 5px 0 15px; }
+
+.modal-card p:not(.eyebrow) {
+  color: #d0c2ae;
+  line-height: 1.8;
+  font-size: .88rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: 0;
+  color: var(--gold);
+  font: 28px serif;
+}
+
+.object-extra {
+  color: var(--gold);
+  font: italic 1.1rem "Cormorant Garamond", serif;
+  padding: 12px 0;
+}
+
+.muted { color: #9d8c7a !important; }
+.entries { display: grid; gap: 10px; margin-top: 20px; }
+
+.entry {
+  padding: 14px 16px;
+  border-left: 2px solid var(--gold);
+  background: rgba(255, 255, 255, .035);
+}
+
+.entry strong {
+  display: block;
+  color: #e4cfaa;
+  font: 600 1.15rem "Cormorant Garamond", serif;
+  margin-bottom: 4px;
+}
+
+.entry span { color: #b6a692; font-size: .75rem; line-height: 1.6; }
+
+/* ---------- Mapa ---------- */
+.map-rooms {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.map-room {
+  text-align: left;
+  min-height: 80px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .025);
+  color: var(--cream);
+  padding: 13px;
+}
+
+.map-room strong { display: block; font: 1.2rem "Cormorant Garamond", serif; }
+.map-room small { color: #b49b73; font-size: .58rem; letter-spacing: .1em; }
+.map-room:disabled { opacity: .35; cursor: not-allowed; }
+
+/* ---------- Aviso emergente ---------- */
+.toast {
+  position: fixed;
+  z-index: 40;
+  bottom: 28px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  background: #261719;
+  border: 1px solid var(--line);
+  color: #e7d4b2;
+  padding: 12px 20px;
+  font-size: .72rem;
+  transition: .3s;
+  box-shadow: 0 8px 30px #000;
+}
+
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 700px) {
+  .game { padding: 0 12px 14px; }
+  .topbar { align-items: flex-start; padding: 15px 0; flex-direction: column; }
+  .top-actions { justify-content: flex-start; gap: 2px; }
+  .top-button, .sound-button { padding: 8px; font-size: .56rem; }
+  .scene { min-height: 510px; height: 68vh; height: 68svh; }
+  .scene-heading { left: 18px; top: 18px; }
+  .scene-hint { left: 18px; right: 18px; bottom: 15px; font-size: .58rem; }
+  .scene-footer { align-items: flex-start; padding: 13px 0; flex-direction: column; }
+  .bottom-note { font-size: .48rem; gap: 8px; }
+  .map-rooms { grid-template-columns: repeat(2, 1fr); }
+  .modal-card { padding: 30px 22px; }
+}
